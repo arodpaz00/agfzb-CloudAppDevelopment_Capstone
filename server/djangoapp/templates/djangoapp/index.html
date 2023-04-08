@@ -15,9 +15,98 @@
 
     <body>
     <!-- Remove this line the first time you edit this file -->
-     This is the index page of your Django app!
+    <!-- This is the index page of your Django app!-->
     <!--Add a nav bar here -->
-
+    <!--<nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/djangoapp/about/">About</a></li>
+            <li><a href="/djangoapp/contact">Contact</a></li>
+        </ul>
+      </nav>
+    -->
+      <!--<nav class="navbar  navbar-light bg-light">
+        
+            
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/djangoapp/about/">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/djangoapp/contact/">Contact Us</a>
+                    </li>
+                </ul>
+            
+        
+    </nav>-->
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Car Dealer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <form class="form-inline">
+                <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Username">
+                <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log in</button>
+              </form>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sign up</a>
+            </li>
+          </ul>
+          {% if user.is_authenticated %}
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <span class="navbar-text">
+                Hello, {{ user.first_name|default:user.username }}!
+              </span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sign out</a>
+            </li>
+          </ul>
+          {% endif %}
+        </div>
+      </nav> -->
+      <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">BestCars</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/djangoapp/index">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/djangoapp/about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/djangoapp/contact">Contact Us</a>
+              </li>
+            </ul>
+            {% if user.is_authenticated %}
+            <div class="navbar-nav">
+              <span class="navbar-text mr-3">Welcome, {{ user.first_name|default:user.username }}!</span>
+              <a class="nav-link" href="/djangoapp/logout">Logout</a>
+            </div>
+            {% else %}
+            <form class="form-inline my-2 my-lg-0" action="/djangoapp/login/" method="POST">
+              {% csrf_token %}
+              <input class="form-control mr-sm-2" type="text" placeholder="Username" name="username">
+              <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+              <a class="btn btn-outline-primary ml-2" href="/djangoapp/signup">Sign up</a>
+            </form>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+      
     <!--Add a dealer table here -->
 
     </body>
