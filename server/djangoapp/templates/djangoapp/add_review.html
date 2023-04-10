@@ -10,7 +10,49 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
 </head>
-    <body>
-    <!--Add review form here -->
-    </body>
+<body>
+    <div class="container">
+        <h2>Add a review</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="review">Review:</label>
+                <textarea class="form-control" rows="5" id="review" name="review"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="purchase">Did you make a purchase?</label>
+                <select class="form-control" id="purchase" name="purchase">
+                    <option value="True">Yes</option>
+                    <option value="False">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="purchase_date">Purchase Date:</label>
+                <div class="input-group date">
+                    <input type="text" class="form-control" id="datepicker" name="purchase_date">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="car_make">Car Make:</label>
+                <input type="text" class="form-control" id="car_make" name="car_make">
+            </div>
+            <div class="form-group">
+                <label for="car_model">Car Model:</label>
+                <input type="text" class="form-control" id="car_model" name="car_model">
+            </div>
+            <div class="form-group">
+                <label for="car_year">Car Year:</label>
+                <input type="text" class="form-control" id="car_year" name="car_year">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        $('#datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+    </script>
+</body>
 </html>
